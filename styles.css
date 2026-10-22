@@ -15,3 +15,118 @@
 
 /* Direct link to the two CTTC Core Java training certificates. */
 .training-certificate-link{display:inline-flex;margin-top:1rem;gap:.5rem;align-items:center;}
+
+/* Clickable internship certificate previews */
+.internship-certificates{margin-top:22px;display:flex;flex-direction:column;align-items:flex-start;gap:9px}.certificate-label{font:10px "DM Mono",monospace;letter-spacing:.12em;color:var(--muted);margin:0}.internship-certificate{position:relative;display:block;width:min(230px,100%);padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:rgba(255,255,255,.03);cursor:zoom-in;text-align:left;transition:transform .25s,border-color .25s}.internship-certificate:hover{transform:translateY(-3px);border-color:var(--accent)}.internship-certificate img{display:block;width:100%;height:145px;object-fit:cover;object-position:top}.internship-certificate>span{display:flex;justify-content:space-between;padding:10px 12px;color:var(--accent);font-size:11px;font-weight:800}.internship-certificate-lightbox{position:fixed;inset:0;z-index:1000;background:rgba(2,3,7,.88);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:20px}.internship-certificate-lightbox.open{display:flex}.internship-certificate-lightbox-panel{width:min(1100px,100%);max-height:100%;display:flex;flex-direction:column;background:#10131e;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 100px rgba(0,0,0,.55)}.internship-certificate-lightbox-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 17px;border-bottom:1px solid var(--line);font-size:12px;font-weight:800}.internship-certificate-lightbox-toolbar>div{display:flex;align-items:center;gap:16px}.internship-certificate-lightbox-toolbar a{color:var(--accent);font-size:11px;text-decoration:none}.internship-certificate-lightbox-toolbar button{background:transparent;border:0;color:var(--text);font-size:28px;cursor:pointer}.internship-certificate-lightbox-content{padding:12px;overflow:auto;text-align:center}.internship-certificate-lightbox-content img{display:block;max-width:100%;max-height:calc(100vh - 125px);width:auto;height:auto;margin:0 auto;object-fit:contain}.internship-certificate-lightbox-hint{text-align:center;color:var(--muted);font-size:10px;padding:0 12px 12px;margin:0}@media(max-width:640px){.experience-card{grid-template-columns:30px 1fr 16px;gap:12px;padding:20px 16px}.internship-certificate{width:min(250px,100%)}.internship-certificate img{height:130px}.internship-certificate-lightbox{padding:10px}}
+
+/* Responsive hardening: small phones, tablets, and certificate previews */
+img, video, iframe { max-width: 100%; }
+.shell { min-width: 0; }
+.experience-content, .hero-copy, .project-details, .about-main, .about-aside { min-width: 0; }
+.tag-row { display:flex; flex-wrap:wrap; gap:8px; }
+.internship-certificate { width:clamp(0px, 100%, 280px); }
+.internship-certificate img { width:100%; height:auto; aspect-ratio: 16 / 9; object-fit:cover; object-position:top; }
+.internship-certificate-lightbox-panel { width:min(1100px, 100%); width:min(1100px, calc(100vw - 24px)); max-height:calc(100dvh - 20px); }
+.internship-certificate-lightbox-content { min-height:0; }
+.internship-certificate-lightbox-content img { max-width:100%; max-height:calc(100dvh - 155px); height:auto; width:auto; }
+@media (max-width:760px) {
+  .experience-card { grid-template-columns:24px minmax(0,1fr); gap:12px; }
+  .experience-arrow { display:none; }
+  .experience-content h3, .experience-content p { overflow-wrap:anywhere; }
+  .internship-certificates { width:100%; }
+  .internship-certificate { width:min(100%, 320px); }
+  .internship-certificate-lightbox-toolbar { align-items:flex-start; flex-wrap:wrap; }
+  .internship-certificate-lightbox-toolbar > span { flex:1 1 100%; overflow-wrap:anywhere; }
+  .internship-certificate-lightbox-toolbar > div { width:100%; justify-content:space-between; }
+  .internship-certificate-lightbox-content { padding:8px; }
+  .internship-certificate-lightbox-hint { font-size:9px; }
+  .resume-banner, .resume-actions, .contact-bottom, .site-footer { min-width:0; }
+  .email-link { overflow-wrap:anywhere; }
+}
+@media (max-width:420px) {
+  .shell { width:calc(100% - 28px); }
+  .experience-card { grid-template-columns:20px minmax(0,1fr); padding:18px 12px; gap:9px; }
+  .experience-number { font-size:11px; }
+  .experience-content h3 { font-size:15px; }
+  .experience-meta { flex-wrap:wrap; gap:6px 12px; }
+  .internship-certificate { width:100%; max-width:100%; }
+  .internship-certificate img { aspect-ratio: 16 / 9; height:auto; }
+  .internship-certificate-lightbox { padding:6px; }
+  .internship-certificate-lightbox-panel { width:100%; max-height:calc(100dvh - 12px); }
+  .internship-certificate-lightbox-content img { max-height:calc(100dvh - 170px); }
+  .internship-certificate-lightbox-toolbar { padding:10px 12px; }
+}
+
+/* Final responsive safety net: prevent any section or decorative element from
+   creating a page wider than the viewport on phones. */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+body { position: relative; }
+*, *::before, *::after { box-sizing: border-box; }
+img, video, iframe, canvas, svg { max-width: 100%; }
+.shell, main, section, header, footer, nav, article, aside,
+.hero, .hero-copy, .hero-visual, .about-layout, .skills-layout,
+.project-feature, .project-details, .experience-card, .experience-content,
+.certificate-teaser, .resume-banner, .contact-inner, .contact-bottom,
+.site-footer, .internship-certificates, .internship-certificate-lightbox,
+.internship-certificate-lightbox-panel, .internship-certificate-lightbox-content {
+  min-width: 0;
+  max-width: 100%;
+}
+.hero > *, .about-layout > *, .skills-layout > *, .project-feature > *,
+.certificate-teaser > *, .experience-card > * { min-width: 0; }
+.hero h1, h1, h2, h3, p, a, button, .mono, .experience-meta {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.hero-visual { overflow: hidden; }
+.visual-orbit { max-width: 100%; }
+.floating-tag { max-width: calc(100% - 16px); }
+.nav { min-width: 0; }
+.nav-links { min-width: 0; }
+.internship-certificate img { display: block; }
+.internship-certificate-lightbox { overflow: auto; }
+.internship-certificate-lightbox-panel { flex-shrink: 1; }
+.internship-certificate-lightbox-toolbar > span { min-width: 0; }
+.internship-certificate-lightbox-toolbar > div { min-width: 0; flex-wrap: wrap; }
+
+@media (max-width: 600px) {
+  .shell { width: calc(100% - 28px); }
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .hero h1 { font-size: clamp(36px, 11vw, 54px); }
+  .hero-visual { width: 100%; min-height: 360px; }
+  .visual-card { width: min(88%, 340px); }
+  .orbit-one, .orbit-two { max-width: 100%; }
+  .hero-actions, .hero-socials, .resume-actions, .contact-socials { min-width: 0; flex-wrap: wrap; }
+  .hero-actions .button { min-width: 0; }
+  .experience-card { grid-template-columns: 20px minmax(0, 1fr); }
+  .experience-content { min-width: 0; }
+  .internship-certificates { align-items: stretch; }
+  .internship-certificate { width: 100%; max-width: 100%; }
+  .internship-certificate img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; }
+  .internship-certificate-lightbox { padding: 6px; }
+  .internship-certificate-lightbox-panel { width: 100%; max-width: 100%; max-height: calc(100dvh - 12px); }
+  .internship-certificate-lightbox-toolbar { align-items: flex-start; flex-wrap: wrap; padding: 10px; }
+  .internship-certificate-lightbox-toolbar > span,
+  .internship-certificate-lightbox-toolbar > div { width: 100%; flex: 1 1 100%; }
+  .internship-certificate-lightbox-content { padding: 8px; }
+  .internship-certificate-lightbox-content img { max-width: 100%; max-height: calc(100dvh - 180px); object-fit: contain; }
+  .resume-banner { padding: 22px 16px; }
+  .email-link { max-width: 100%; overflow-wrap: anywhere; }
+  .site-footer { gap: 12px; }
+}
+
+@media (max-width: 360px) {
+  .shell { width: calc(100% - 24px); }
+  .hero h1 { font-size: clamp(32px, 10.5vw, 40px); }
+  .hero-visual { min-height: 330px; }
+  .visual-card { padding: 12px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .button { width: 100%; }
+  .section-heading h2, .certificate-teaser h2 { font-size: clamp(28px, 9vw, 34px); }
+  .resume-actions { flex-direction: column; }
+  .resume-actions .button { width: 100%; }
+}

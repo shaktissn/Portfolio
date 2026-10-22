@@ -74,8 +74,8 @@
     <section class="section shell" id="experience">
       <div class="section-heading"><p class="section-index">03 / EXPERIENCE</p><h2>Learning by <span class="gradient-text">doing.</span></h2></div>
       <div class="experience-list">
-        <article class="experience-card"><div class="experience-number">01</div><div class="experience-content"><div class="experience-meta"><span>INTERNSHIP</span><span>AI / CLOUD</span></div><h3>Artificial Intelligence & IBM Cloud Technologies</h3><p>Edunet Foundation · In collaboration with IBM</p><p class="body-copy">Completed a 4–6 week internship focused on AI/ML model development, cloud deployment, and real-world problem statements using the IBM SkillsBuild platform.</p><div class="tag-row"><span>Python</span><span>AI / ML</span><span>IBM Cloud</span></div></div><div class="experience-arrow">↗</div></article>
-        <article class="experience-card"><div class="experience-number">02</div><div class="experience-content"><div class="experience-meta"><span>INTERNSHIP</span><span>FRONT-END</span></div><h3>Front-End Web Development</h3><p>Edunet Foundation · In collaboration with AICTE</p><p class="body-copy">Completed a 6-week program covering responsive interfaces, HTML, CSS, JavaScript, UI/UX principles, version control, and debugging through practical web development work.</p><div class="tag-row"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git</span></div></div><div class="experience-arrow">↗</div></article>
+        <article class="experience-card"><div class="experience-number">01</div><div class="experience-content"><div class="experience-meta"><span>INTERNSHIP</span><span>AI / CLOUD</span></div><h3>Artificial Intelligence & IBM Cloud Technologies</h3><p>Edunet Foundation · In collaboration with IBM</p><p class="body-copy">Completed a 4–6 week internship focused on AI/ML model development, cloud deployment, and real-world problem statements using the IBM SkillsBuild platform.</p><div class="tag-row"><span>Python</span><span>AI / ML</span><span>IBM Cloud</span></div><div class="internship-certificates"><p class="certificate-label">INTERNSHIP CERTIFICATE</p><button class="internship-certificate" type="button" data-certificate-preview="edunet-ai-cloud-certificate.jpg" aria-label="Preview AI and IBM Cloud internship certificate"><img src="edunet-ai-cloud-certificate.jpg" loading="lazy" alt="Edunet Foundation AI and IBM Cloud internship certificate"><span>View certificate ↗</span></button></div></div><div class="experience-arrow">↗</div></article>
+        <article class="experience-card"><div class="experience-number">02</div><div class="experience-content"><div class="experience-meta"><span>INTERNSHIP</span><span>FRONT-END</span></div><h3>Front-End Web Development</h3><p>Edunet Foundation · In collaboration with AICTE</p><p class="body-copy">Completed a 6-week program covering responsive interfaces, HTML, CSS, JavaScript, UI/UX principles, version control, and debugging through practical web development work.</p><div class="tag-row"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git</span></div><div class="internship-certificates"><p class="certificate-label">INTERNSHIP CERTIFICATE</p><button class="internship-certificate" type="button" data-certificate-preview="edunet-frontend-certificate.jpg" aria-label="Preview Front End Web Development internship certificate"><img src="edunet-frontend-certificate.jpg" loading="lazy" alt="Edunet Foundation Front End Web Development internship certificate"><span>View certificate ↗</span></button></div></div><div class="experience-arrow">↗</div></article>
       </div>
     </section>
 
@@ -97,6 +97,25 @@
     <section class="section contact-section" id="contact"><div class="shell contact-inner"><p class="section-index">08 / CONTACT</p><h2>Have an idea?<br><span class="gradient-text">Let's make it happen.</span></h2><p class="contact-copy">I'm always open to learning, collaboration, and meaningful conversations.</p><a class="email-link" href="mailto:s.ssn.1458@gmail.com">s.ssn.1458@gmail.com <span>↗</span></a><div class="contact-bottom"><div class="contact-socials"><a href="https://github.com/shaktissn" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/shakti-swaroop-nayak" target="_blank" rel="noopener">LinkedIn ↗</a><a href="tel:+919777389659">+91 9777389659</a></div><a class="back-top" href="#home">BACK TO TOP ↑</a></div></div></section>
   </main>
   <footer class="site-footer shell"><a class="brand" href="#home"><span class="brand-mark">S<span>.</span></span><span>shakti<span class="brand-muted">.dev</span></span></a><p>Designed with curiosity. Built with code.</p><span class="mono">© <span id="year">2026</span> SHAKTI SWAROOP NAYAK</span></footer>
+
+  <div class="internship-certificate-lightbox" id="internshipCertificateLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Internship certificate preview"><div class="internship-certificate-lightbox-panel"><div class="internship-certificate-lightbox-toolbar"><span id="internshipCertificateTitle">Internship certificate</span><div><a id="internshipCertificateDownload" href="#" download>Download ↓</a><button type="button" id="internshipCertificateClose" aria-label="Close certificate preview">×</button></div></div><div class="internship-certificate-lightbox-content"><img id="internshipCertificateFullImage" src="" alt="Internship certificate full-size preview"></div><p class="internship-certificate-lightbox-hint">Press Esc or click outside the preview to close</p></div></div>
+  <script>
+  (() => {
+    const overlay = document.getElementById('internshipCertificateLightbox');
+    const fullImage = document.getElementById('internshipCertificateFullImage');
+    const title = document.getElementById('internshipCertificateTitle');
+    const download = document.getElementById('internshipCertificateDownload');
+    const close = document.getElementById('internshipCertificateClose');
+    let previousFocus = null;
+    const closePreview = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); fullImage.src=''; document.body.style.overflow=''; previousFocus?.focus(); };
+    document.querySelectorAll('[data-certificate-preview]').forEach(button => button.addEventListener('click', () => {
+      const file = button.dataset.certificatePreview; previousFocus = button; fullImage.src = file; title.textContent = button.getAttribute('aria-label') || 'Internship certificate'; download.href = file; download.download = file; overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; close.focus();
+    }));
+    close.addEventListener('click', closePreview);
+    overlay.addEventListener('click', event => { if (event.target === overlay) closePreview(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && overlay.classList.contains('open')) closePreview(); });
+  })();
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
